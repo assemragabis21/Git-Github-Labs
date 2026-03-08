@@ -9,10 +9,10 @@ Here is the refined, step-by-step guide for your lab with each command on its ow
 * Link and push to your remote server.
 
 ```bash
-mkdir lab2
-cd lab2
+mkdir Git-Github-Labs
+cd Git-Github-Labs
 git init
-echo "# Lab 2" > README.md
+echo "Test" > README.md
 git add README.md
 git commit -m "Initial commit"
 git remote add origin <REMOTE_URL>
@@ -27,7 +27,7 @@ git push -u origin main
 
 ```bash
 git checkout -b dev
-touch test
+echo "#/bin/bash " > test
 git add .
 git commit -m "Add dev file"
 git push -u origin dev
@@ -42,7 +42,7 @@ git push -u origin dev
 ```bash
 git checkout main
 git checkout -b test
-touch testx
+echo "#!/usr/bin/env python3 " > testx
 git add .
 git commit -m "Add test file"
 git push -u origin test
