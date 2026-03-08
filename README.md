@@ -1,9 +1,16 @@
-#### **Part 1: Branches & Merging**
+## Git Lab 2: Step-by-Step Walkthrough
 
-**1. Create Project & Push to Remote**
+Here is the refined, step-by-step guide for your lab with each command on its own line for better clarity and reliability.
+
+### Step 1: Create Project & Push to Remote
+
+* Initialize your local repository.
+* Create a starting file.
+* Link and push to your remote server.
 
 ```bash
-mkdir lab2 && cd lab2
+mkdir lab2
+cd lab2
 git init
 echo "# Lab 2" > README.md
 git add README.md
@@ -13,25 +20,39 @@ git push -u origin main
 
 ```
 
-**2. Create `dev` & `test` Branches, Add Files, Push**
+### Step 2: Create `dev` Branch, Add File, & Push
+
+* Create and switch to a new branch for development.
+* Add a specific file to track progress on this branch.
 
 ```bash
-# Dev branch
 git checkout -b dev
-touch dev_file.txt
-git add . && git commit -m "Add dev file"
+touch test
+git add .
+git commit -m "Add dev file"
 git push -u origin dev
 
-# Test branch (branching off main)
+```
+
+### Step 3: Create `test` Branch, Add File, & Push
+
+* Switch back to the main branch before creating the next branch.
+* Create and switch to a test branch.
+
+```bash
 git checkout main
 git checkout -b test
-touch test_file.txt
-git add . && git commit -m "Add test file"
+touch testx
+git add .
+git commit -m "Add test file"
 git push -u origin test
 
 ```
 
-**3. Merge to Main & Push**
+### Step 4: Merge to Main & Push
+
+* Switch back to the `main` branch to receive the changes.
+* Merge the work from both `dev` and `test`.
 
 ```bash
 git checkout main
@@ -41,34 +62,39 @@ git push origin main
 
 ```
 
-**4. Remove Branches (Locally & Remotely)**
+### Step 5: Remove Branches (Locally & Remotely)
+
+* Clean up your repository after the merge is complete.
 
 ```bash
 # Delete locally
-git branch -d dev test
+git branch -d dev
+git branch -d test
 
 # Delete remotely
-git push origin -d dev test
+git push origin --delete dev
+git push origin --delete test
 
 ```
 
-**5. Checkout Another Branch Without Committing**
-Use `git stash` to temporarily save your uncommitted work so you can switch branches cleanly.
+### Step 6: The `git stash` Command
+
+Use this when you have uncommitted work but need to switch branches urgently.
 
 ```bash
 git stash
 git checkout <other-branch>
 
-# When you come back, restore your changes:
-# git stash pop
+# To get your work back later:
+git stash pop
 
 ```
 
 ---
 
-#### **Part 2: Tags & Documentation**
+### Step 7: Create Annotated Tag & Push
 
-**1. Create Annotated Tag & Push**
+* Tag a specific point in history (like a release) with metadata.
 
 ```bash
 git tag -a v1.9 -m "Version 1.9 tag"
@@ -76,16 +102,14 @@ git push origin v1.9
 
 ```
 
-**2. List Tags**
+### Step 8: List & Manage Tags
+
+* View all tags or delete them if a mistake was made.
 
 ```bash
+# List all tags
 git tag
 
-```
-
-**3. Delete Tag (Locally & Remotely)**
-
-```bash
 # Delete locally
 git tag -d v1.9
 
@@ -94,8 +118,13 @@ git push origin --delete v1.9
 
 ```
 
-**4. Add an Image in README.md**
-Open your `README.md` file and drop in the markdown format (using your Dahab picture as the perfect example!):
+### Step 9: Add an Image in README.md
 
-![test](https://dahabsafari.com/wp-content/uploads/2019/11/bluehole-768x544.jpg)
+* Update your documentation by adding the Markdown image syntax to your `README.md`.
 
+![Dahab](https://dahabsafari.com/wp-content/uploads/2019/11/bluehole-768x544.jpg)
+
+
+```
+
+Would you like me to add a section on how to resolve merge conflicts if two branches change the same file?
